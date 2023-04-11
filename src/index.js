@@ -1,12 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import "./index.css";
+import "./assets/styles/General.css";
 import reportWebVitals from "./reportWebVitals";
 import App from "./App";
 import Home from "./routes/Home";
 import DiceRoller from "./routes/DiceRoller";
 import CharacterBuilder from "./routes/CharacterBuilder";
+import CharacterManager from "./routes/CharacterManager";
 import ErrorPage from "./routes/ErrorPage";
 
 // Configuring Routes
@@ -25,8 +26,12 @@ const router = createBrowserRouter([
         element: <DiceRoller />,
       },
       {
-        path: "char",
+        path: "characterbuilder",
         element: <CharacterBuilder />,
+      },
+      {
+        path: "charactermanager",
+        element: <CharacterManager />,
       },
     ],
   },

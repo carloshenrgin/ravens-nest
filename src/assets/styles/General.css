@@ -1,0 +1,89 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Raleway", "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.body-text {
+  font-size: 1.6rem;
+  font-weight: 400;
+  letter-spacing: 0.25px;
+  line-height: 1.5;
+}
+
+.link {
+  text-decoration: none;
+  transition: all 0.3s ease-in;
+}
+
+.button {
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.primary-button {
+  background-color: #e0c8fe;
+  border: 1px solid #e0c8fe;
+  color: #161419;
+  transition: unset;
+  transition: background-color 0.3s ease-in, border 0.3s ease-in;
+}
+
+.primary-button:hover,
+.primary-button:active {
+  background-color: #bb86fc;
+  border: 1px solid #bb86fc;
+}
+
+.secondary-button {
+  background-color: transparent;
+  color: #bb86fc;
+  border: 1px solid #bb86fc;
+  transition: unset;
+  transition: background-color 0.3s ease-in, color 0.3s ease-in;
+}
+
+.secondary-button:hover,
+.secondary-button:active {
+  background-color: #bb86fc;
+  color: #161419;
+}
+
+.button-md {
+  padding: 1.2rem 2.4rem;
+}
+
+@media (max-width: 35em) {
+  .body-text {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 22em) {
+  .button-md {
+    padding: 0.8rem 2rem;
+  }
+}
+
+@media (max-width: 18em) {
+  .button-md {
+    padding: 0.8rem 1.6rem;
+  }
+}

@@ -1,7 +1,14 @@
+import Hero from "../components/Hero";
+import About from "../components/About";
+import { Element } from "react-scroll/modules";
+
 function Home() {
   return (
     <div>
-      <h1>Home</h1>
+      <Hero />
+      <Element name="about-section">
+        <About />
+      </Element>
     </div>
   );
 }
