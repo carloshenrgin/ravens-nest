@@ -1,0 +1,24 @@
+.pl-mn-input-container {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.btn--pl-mn {
+  border-width: 1.5px;
+}
+
+.pl-mn-input-container {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.pl-mn-input {
+  text-align: center;
+  max-width: 6.4rem;
+  font: inherit;
+  font-size: 1.6rem;
+  padding: 0.6rem 0;
+  width: 100%;
+}

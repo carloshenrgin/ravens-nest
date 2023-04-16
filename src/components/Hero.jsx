@@ -8,7 +8,7 @@ function Hero() {
       <div className="hero-container">
         <div className="hero-text-container">
           <h1 className="cta-heading">
-            Seize Your Destiny. <br /> Start Your Journey
+            Seize Your Destiny. <br /> Start Your Journey.
           </h1>
           <p className="cta-text">
             Ready to embark on your adventure and conquer riches and fame? Use
@@ -23,12 +23,12 @@ function Hero() {
           <div className="cta-links">
             <Link
               to="/characterbuilder"
-              className="primary-button button-md link button"
+              className="btn-primary btn-md link btn"
             >
               Get Started
             </Link>
             <ScrollLink
-              className="secondary-button button-md link button"
+              className="btn-secondary btn-md link btn"
               to="about-section"
               smooth={true}
               duration={500}

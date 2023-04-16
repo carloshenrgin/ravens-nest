@@ -1,14 +1,10 @@
-function Button({ border, color, children, height, width, radius, onClick }) {
-  const styles = {
-    backgroundColor: color && color,
-    border: border && border,
-    borderRadius: radius && radius,
-    height: height && height,
-    width: width && width,
-  };
-
+function Button({ children, onClick, className, type }) {
   return (
-    <button onClick={onClick} style={styles}>
+    <button
+      type={type ? type : "button"}
+      onClick={onClick}
+      className={className}
+    >
       {children}
     </button>
   );

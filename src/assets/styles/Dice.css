@@ -1,0 +1,11 @@
+.dice {
+  max-height: 8rem;
+  max-width: 8rem;
+}
+
+.d6 {
+  border: 1px #000 solid;
+  border-radius: 0.4rem;
+  max-height: 6.4rem;
+  max-width: 6.4rem;
+}

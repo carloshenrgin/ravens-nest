@@ -1,0 +1,8 @@
+.dice-selector {
+  max-width: 24rem;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 1.6rem;
+  justify-content: space-between;
+  align-items: center;
+}

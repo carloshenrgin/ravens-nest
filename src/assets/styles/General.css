@@ -14,6 +14,8 @@ body {
     "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #212333;
+  color: #cfcfd3;
 }
 
 code {
@@ -33,12 +35,14 @@ code {
   transition: all 0.3s ease-in;
 }
 
-.button {
+.btn {
+  all: unset;
+  box-sizing: border-box;
   cursor: pointer;
   font-weight: 500;
 }
 
-.primary-button {
+.btn-primary {
   background-color: #e0c8fe;
   border: 1px solid #e0c8fe;
   color: #161419;
@@ -46,13 +50,13 @@ code {
   transition: background-color 0.3s ease-in, border 0.3s ease-in;
 }
 
-.primary-button:hover,
-.primary-button:active {
+.btn-primary:hover,
+.btn-primary:active {
   background-color: #bb86fc;
   border: 1px solid #bb86fc;
 }
 
-.secondary-button {
+.btn-secondary {
   background-color: transparent;
   color: #bb86fc;
   border: 1px solid #bb86fc;
@@ -60,14 +64,66 @@ code {
   transition: background-color 0.3s ease-in, color 0.3s ease-in;
 }
 
-.secondary-button:hover,
-.secondary-button:active {
+.btn-secondary:hover,
+.btn-secondary:active {
   background-color: #bb86fc;
   color: #161419;
 }
 
-.button-md {
+.btn-md {
   padding: 1.2rem 2.4rem;
+}
+
+.btn-sm {
+  padding: 0.6em 1.8rem;
+}
+
+.btn-round-edge {
+  border-radius: 4px;
+}
+
+.btn-round {
+  border-radius: 100%;
+  display: flex;
+  width: 3rem;
+  height: 3rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-field--number-no-arrows::-webkit-outer-spin-button,
+.input-field--number-no-arrows::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input-field--number-no-arrows {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.input-field {
+  font-size: 1.6rem;
+
+  padding: 1rem 0.8rem;
+  border: 1px solid #cfcfd3;
+  border-radius: 0.4rem;
+  box-shadow: 0 1px 1px rgba(255, 255, 255, 0);
+
+  background-color: #1f2130;
+  color: #cfcfd3;
+
+  transition: all 0.2s ease-in;
+  outline: none;
+}
+
+.input-field:focus {
+  box-shadow: 0 1px 8px rgba(255, 255, 255, 0.25);
+}
+
+.input-field:disabled {
+  background-color: #e9e9e9;
+  color: #777;
 }
 
 @media (max-width: 35em) {

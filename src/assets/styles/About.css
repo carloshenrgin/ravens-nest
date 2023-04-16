@@ -1,11 +1,8 @@
 .about-section {
-  background-color: #212333;
-  color: #cfcfd3;
   padding: 10rem 0;
 }
 
 .about-container {
-  color: rgba(255, 255, 255, 0.8);
   max-width: 80rem;
   margin: 0 auto;
 }
