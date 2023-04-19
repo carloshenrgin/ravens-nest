@@ -1,11 +1,19 @@
 import { Link } from "react-router-dom";
 import { List, X } from "react-bootstrap-icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LogoDesktop from "../assets/images/logo-desktop.png";
 import "../assets/styles/NavBar.css";
 
 function NavBar() {
   const [nav, toggleNav] = useState(false);
+
+  useEffect(() => {
+    if (nav) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+  }, [nav]);
 
   return (
     <header>
