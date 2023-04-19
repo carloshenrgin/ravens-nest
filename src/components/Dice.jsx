@@ -1,4 +1,5 @@
 import "../assets/styles/Dice.css";
+import { memo } from "react";
 
 function Dice({ diceMax, diceType, diceValue, classList }) {
   const dice = require(`../assets/images/d${diceMax}${
@@ -10,4 +11,4 @@ function Dice({ diceMax, diceType, diceValue, classList }) {
   );
 }
 
-export default Dice;
+export default memo(Dice);
