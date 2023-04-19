@@ -51,6 +51,7 @@
 
   .dice-selector {
     justify-items: center;
+    gap: 1.2rem;
     column-gap: 0;
   }
 
@@ -63,5 +64,11 @@
   .label-start + *,
   .label-end + * {
     grid-row: 2;
+  }
+}
+
+@media (max-width: 27em) {
+  .dice-selector {
+    gap: 0.8rem;
   }
 }

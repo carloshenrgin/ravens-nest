@@ -25,11 +25,3 @@
     max-width: 4.8rem;
   }
 }
-
-@media (max-width: 27em) {
-  .d6,
-  .dice {
-    max-height: 4rem;
-    max-width: 4rem;
-  }
-}

@@ -65,6 +65,7 @@
     background-color: #1f202f;
     width: 0;
     height: calc(100vh - 6rem);
+    height: calc(100svh - 6rem);
     transition: all 0.3s ease-in;
     overflow: hidden;
     display: flex;
