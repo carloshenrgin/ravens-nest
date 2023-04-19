@@ -1,0 +1,83 @@
+.sb-row {
+  margin: 0 auto;
+
+  max-width: 32rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 4rem;
+}
+
+.sb-wrapper {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+}
+
+.sb-icon {
+  max-height: 4rem;
+  max-width: 4rem;
+
+  border-radius: 0.4rem;
+  box-shadow: 0 1px 8px rgba(255, 255, 255, 0.25);
+}
+
+.sb-icon--black {
+  border: 1px solid #07070a;
+}
+
+.sb-value {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.dice-grid {
+  max-width: 68rem;
+  max-width: 100%;
+  display: grid;
+  gap: 1.4rem;
+  grid-template-columns: repeat(6, 1fr);
+  justify-items: center;
+  align-items: center;
+}
+
+@media (max-width: 40em) {
+  .dice-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (max-width: 34em) {
+  .sb-row {
+    justify-content: center;
+    gap: 3.2rem;
+  }
+
+  .dice-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 27em) {
+  .sb-icon {
+    max-height: 2.8rem;
+    max-width: 2.8rem;
+  }
+}
+
+@media (max-width: 24em) {
+  .sb-wrapper {
+    gap: 0.8rem;
+    flex-direction: column;
+  }
+
+  .sb-icon {
+    max-height: 3.2rem;
+    max-width: 3.2rem;
+  }
+
+  .dice-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

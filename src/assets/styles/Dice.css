@@ -1,6 +1,6 @@
 .dice {
-  max-height: 8rem;
-  max-width: 8rem;
+  max-height: 7.2rem;
+  max-width: 7.2rem;
 }
 
 .d6 {
@@ -8,4 +8,28 @@
   border-radius: 0.4rem;
   max-height: 6.4rem;
   max-width: 6.4rem;
+}
+
+@media (max-width: 40em) {
+  .d6,
+  .dice {
+    max-height: 5.6rem;
+    max-width: 5.6rem;
+  }
+}
+
+@media (max-width: 27em) {
+  .d6,
+  .dice {
+    max-height: 4.8rem;
+    max-width: 4.8rem;
+  }
+}
+
+@media (max-width: 27em) {
+  .d6,
+  .dice {
+    max-height: 4rem;
+    max-width: 4rem;
+  }
 }

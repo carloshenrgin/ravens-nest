@@ -1,6 +1,5 @@
 import Dice from "./Dice";
 import PlusMinusInput from "./PlusMinusInput";
-import "../assets/styles/DiceSelector.css";
 import { useCallback } from "react";
 
 function DiceSelector({ max, type, justifySelf, liftDice = () => {} }) {
@@ -15,15 +14,11 @@ function DiceSelector({ max, type, justifySelf, liftDice = () => {} }) {
     <div style={{ justifySelf: justifySelf }}>
       <PlusMinusInput
         className="dice-selector"
-        labelPosition={justifySelf}
         liftFuncion={onDiceSelection}
         inputId={type}
+        labelClass={`label-${justifySelf}`}
       >
-        <Dice
-          diceMax={Number(max)}
-          diceType={type}
-          className={"dice-selector"}
-        />
+        <Dice diceMax={Number(max)} diceType={type} />
       </PlusMinusInput>
     </div>
   );

@@ -126,6 +126,13 @@ code {
   color: #777;
 }
 
+@media (max-width: 40em) {
+  .btn-round {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+}
+
 @media (max-width: 35em) {
   .body-text {
     font-size: 1.4rem;

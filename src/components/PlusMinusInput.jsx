@@ -8,7 +8,6 @@ function PlusMinusInput({
   children,
   inputId = "pl-mn--input",
   labelClass,
-  labelPosition = "start",
   initialValue = 0,
   minValue = 0,
   maxValue,
@@ -47,9 +46,11 @@ function PlusMinusInput({
     }
   }
 
+  console.log(window.innerWidth);
+
   return (
     <div className={className}>
-      {children && labelPosition === "start" && (
+      {children && (
         <label htmlFor={inputId} className={labelClass}>
           {children}
         </label>
@@ -80,12 +81,6 @@ function PlusMinusInput({
           <PlusLg size={18} className="icon--pl-mn" />
         </Button>
       </div>
-
-      {children && labelPosition === "end" && (
-        <label htmlFor={inputId} className={labelClass}>
-          {children}
-        </label>
-      )}
     </div>
   );
 }

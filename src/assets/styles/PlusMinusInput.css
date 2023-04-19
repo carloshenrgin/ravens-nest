@@ -22,3 +22,46 @@
   padding: 0.6rem 0;
   width: 100%;
 }
+
+.dice-selector {
+  max-width: 24rem;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 1.6rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.label-start {
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.label-end {
+  grid-row: 1;
+  grid-column: 2;
+}
+
+@media (max-width: 40em) {
+  .pl-mn-input {
+    max-width: 4.8rem;
+    font-size: 1.4rem;
+    padding: 0.4rem 0;
+  }
+
+  .dice-selector {
+    justify-items: center;
+    column-gap: 0;
+  }
+
+  .label-start,
+  .label-end {
+    grid-row: 1;
+    grid-column: 1;
+  }
+
+  .label-start + *,
+  .label-end + * {
+    grid-row: 2;
+  }
+}
