@@ -57,14 +57,11 @@ function DiceSelectors({ onRoll = () => {}, onPush = () => {} }) {
       </div>
 
       <div className="dice-selector-buttons">
-        <Button
-          className={"btn btn-round-edge btn-sm btn-secondary"}
-          onClick={onPush}
-        >
+        <Button className={"btn btn-sm btn-secondary"} onClick={onPush}>
           Push
         </Button>
         <Button
-          className={"btn btn-round-edge btn-sm btn-primary"}
+          className={"btn btn-sm btn-primary"}
           onClick={() => {
             onRoll(selectedDice);
           }}

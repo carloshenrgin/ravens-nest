@@ -67,6 +67,7 @@ code {
   box-sizing: border-box;
   cursor: pointer;
   font-weight: 500;
+  border-radius: 4px;
 }
 
 .btn-primary {
@@ -103,10 +104,6 @@ code {
 
 .btn-sm {
   padding: 0.6em 1.8rem;
-}
-
-.btn-round-edge {
-  border-radius: 4px;
 }
 
 .btn-round {
