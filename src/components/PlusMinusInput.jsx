@@ -46,8 +46,6 @@ function PlusMinusInput({
     }
   }
 
-  console.log(window.innerWidth);
-
   return (
     <div className={className}>
       {children && (
