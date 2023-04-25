@@ -28,7 +28,7 @@ function NavBar() {
           <button
             type="button"
             className="mobile-button"
-            onClick={() => toggleNav(!nav)}
+            onClick={() => toggleNav((prevNav) => !prevNav)}
           >
             <List
               className="mobile-nav-icon mobile-nav-icon--closed"
