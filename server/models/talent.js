@@ -4,6 +4,7 @@ const { Schema } = mongoose;
 const talentSchema = new Schema({
   name: {
     type: String,
+    trim: true,
     required: [true, "Talent name required"],
     validate: {
       validator: function (name) {
@@ -14,6 +15,7 @@ const talentSchema = new Schema({
   },
   type: {
     type: String,
+    trim: true,
     required: [true, "Talent type required"],
     validate: {
       validator: function (type) {
@@ -27,6 +29,7 @@ const talentSchema = new Schema({
   },
   kin: {
     type: String,
+    trim: true,
     validate: {
       validator: function (kin) {
         return (
@@ -42,6 +45,7 @@ const talentSchema = new Schema({
   },
   profession: {
     type: String,
+    trim: true,
     validate: {
       validator: function (profession) {
         return (
@@ -57,7 +61,14 @@ const talentSchema = new Schema({
   },
   description: {
     type: String,
+    trim: true,
     required: [true, "Talent description required"],
+    validate: {
+      validator: function (description) {
+        return description.trim().length > 0;
+      },
+      message: "Description must have a non-empty value",
+    },
   },
   ranks: {
     type: Array,
