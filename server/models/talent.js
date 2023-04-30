@@ -65,7 +65,9 @@ const talentSchema = new Schema({
     validate: {
       validator: function (rankArr) {
         return (
-          (this.type === "Kin" && rankArr?.length === 0) || rankArr?.length > 0
+          (this.type === "Kin" && rankArr?.length === 0) ||
+          this.type === "General" ||
+          rankArr?.length > 0
         );
       },
       message: "Check the ranks and type fields for invalid values.",
