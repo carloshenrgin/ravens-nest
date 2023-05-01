@@ -6,9 +6,7 @@ function sanitizeFormData(formData) {
         Array.isArray(value) &&
         value.every((item) => typeof item === "string")
       ) {
-        sanitizedData[key] = value.every((item) => item.trim().length > 0)
-          ? value
-          : [];
+        sanitizedData[key] = value.filter((item) => item.trim().length > 0);
       } else {
         sanitizedData[key] = value;
       }

@@ -7,6 +7,7 @@ const characterRoutes = require("./routes/character");
 const kinRoutes = require("./routes/kin");
 const talentRoutes = require("./routes/talent");
 const skillRoutes = require("./routes/skill");
+const conditionRoutes = require("./routes/condition");
 
 const app = express();
 app.use(bodyParser.json());
@@ -20,6 +21,7 @@ async function main() {
   app.use("/api/kin", kinRoutes);
   app.use("/api/talent", talentRoutes);
   app.use("/api/skill", skillRoutes);
+  app.use("/api/condition", conditionRoutes);
 
   app.listen(config.port, () => {
     console.log(`Server listening on ${config.port}`);
