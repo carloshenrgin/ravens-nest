@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
+  <title>Register Condition</title>
+</head>
+
+<body>
+  <form action="/api/gear/register" method="post" class="container mt-5">
+    <div class="row mb-3">
+      <div class="col-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" name="name" required>
+      </div>
+
+      <div class="col-3">
+        <label for="type" class="form-label">Type</label>
+        <select class="form-select" id="type" name="type" required>
+          <option disabled selected value="">Choose a type</option>
+          <option value="Trade Good">Trade Good</option>
+          <option value="Melee Weapon">Melee Weapon</option>
+          <option value="Ranged Weapon">Ranged Weapon</option>
+          <option value="Shield & Armor">Shield & Armor</option>
+          <option value="Clothes">Clothes</option>
+          <option value="Mean of Transportation">Mean of Transportation</option>
+          <option value="Tool">Tool</option>
+          <option value="Raw Material">Raw Material</option>
+          <option value="Building">Building</option>
+          <option value="Animal">Animal</option>
+          <option value="Service">Service</option>
+        </select>
+      </div>
+      <div class="col-2">
+        <label for="price" class="form-label">Price</label>
+        <input type="text" class="form-control" id="price" name="price" required>
+      </div>
+      <div class="col-2">
+        <label for="supplyRarity" class="form-label">Supply Rarity</label>
+        <select class="form-select" id="supplyRarity" name="supplyRarity">
+          <option disabled selected value="">Choose a rarity</option>
+          <option value="">&dash;</option>
+          <option value="Common">Common</option>
+          <option value="Uncommon">Uncommon</option>
+          <option value="Rare">Rare</option>
+        </select>
+      </div>
+
+      <div class="col-2">
+        <label for="shelfLife" class="form-label">Shelf Life</label>
+        <input type="text" class="form-control" id="shelfLife" name="shelfLife">
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-3">
+        <label for="weightCategory" class="form-label">Weight Category</label>
+        <select class="form-select" id="weightCategory" name="weightCategory">
+          <option disabled selected value="">Choose a weight category</option>
+          <option value="">&dash;</option>
+          <option value="Tiny">Tiny</option>
+          <option value="Light">Light</option>
+          <option value="Normal">Normal</option>
+          <option value="Heavy">Heavy</option>
+        </select>
+      </div>
+      <div class="col-3">
+        <label for="rawMaterials" class="form-label">Raw Materials</label>
+        <input type="text" class="form-control" id="rawMaterials" name="rawMaterials">
+      </div>
+      <div class="col-3">
+        <label for="time" class="form-label">Time</label>
+        <input type="text" class="form-control" id="time" name="time">
+      </div>
+      <div class="col-3">
+        <label for="tools" class="form-label">Tools</label>
+        <input type="text" class="form-control" id="tools" name="tools">
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-6">
+        <label for="effect" class="form-label">Effect</label>
+        <textarea type="text" class="form-control" id="effect" name="effect" rows="5"></textarea>
+      </div>
+      <div class="col-6">
+        <label for="comments" class="form-label">Comments</label>
+        <textarea class="form-control" id="comments" name="comments" rows="5"></textarea>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-2">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Adaptive" id="talents0">
+          <label class="form-check-label" for="talents0">Adaptive</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Inner Peace" id="talents1">
+          <label class="form-check-label" for="talents1">Inner Peace</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Psychic Power" id="talents2">
+          <label class="form-check-label" for="talents2">Psychic Power</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="True Grit" id="talents3">
+          <label class="form-check-label" for="talents3">True Grit</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Hard to Catch" id="talents4">
+          <label class="form-check-label" for="talents4">Hard to Catch</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Hunting Instincts" id="talents5">
+          <label class="form-check-label" for="talents5">Hunting Instincts</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Unbreakable" id="talents6">
+          <label class="form-check-label" for="talents6">Unbreakable</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Sneaky" id="talents7">
+          <label class="form-check-label" for="talents7">Sneaky</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Path of Healing" id="talents8">
+          <label class="form-check-label" for="talents8">Path of Healing</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Path of Shifting Shapes"
+            id="talents9">
+          <label class="form-check-label" for="talents9">Path of Shifting Shapes</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Path of Sight" id="talents10">
+          <label class="form-check-label" for="talents10">Path of Sight</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Path of the Blade" id="talents11">
+          <label class="form-check-label" for="talents11">Path of the Blade</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Path of the Enemy" id="talents12">
+          <label class="form-check-label" for="talents12">Path of the Enemy</label>
+        </div>
+      </div>
+
+
+      <div class="col-2">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Path of the Shield" id="talents13">
+          <label class="form-check-label" for="talents13">Path of the Shield</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Path of the Arrow" id="talents14">
+          <label class="form-check-label" for="talents14">Path of the Arrow</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Path of the Beast" id="talents15">
+          <label class="form-check-label" for="talents15">Path of the Beast</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Path of the Forest" id="talents16">
+          <label class="form-check-label" for="talents16">Path of the Forest</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Path of the Hymn" id="talents17">
+          <label class="form-check-label" for="talents17">Path of the Hymn</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Path of the Song" id="talents18">
+          <label class="form-check-label" for="talents18">Path of the Song</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Path of the Warcry" id="talents19">
+          <label class="form-check-label" for="talents19">Path of the Warcry</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Path of Gold" id="talents20">
+          <label class="form-check-label" for="talents20">Path of Gold</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Path of Lies" id="talents21">
+          <label class="form-check-label" for="talents21">Path of Lies</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Path of Many Things" id="talents22">
+          <label class="form-check-label" for="talents22">Path of Many Things</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Path of the Companion" id="talents23">
+          <label class="form-check-label" for="talents23">Path of the Companion</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Path of the Knight" id="talents24">
+          <label class="form-check-label" for="talents24">Path of the Knight</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Path of the Plains" id="talents25">
+          <label class="form-check-label" for="talents25">Path of the Plains</label>
+        </div>
+      </div>
+
+      <div class="col-2">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Path of the Face" id="talents26">
+          <label class="form-check-label" for="talents26">Path of the Face</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Path of the Killer" id="talents27">
+          <label class="form-check-label" for="talents27">Path of the Killer</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Path of Poison" id="talents28">
+          <label class="form-check-label" for="talents28">Path of Poison</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Path of Blood" id="talents29">
+          <label class="form-check-label" for="talents29">Path of Blood</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Path of Death" id="talents30">
+          <label class="form-check-label" for="talents30">Path of Death</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Path of Signs" id="talents31">
+          <label class="form-check-label" for="talents31">Path of Signs</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Path of Stone" id="talents32">
+          <label class="form-check-label" for="talents32">Path of Stone</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Ambidextrous" id="talents33">
+          <label class="form-check-label" for="talents33">Ambidextrous</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Axe Fighter" id="talents34">
+          <label class="form-check-label" for="talents34">Axe Fighter</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Berserker" id="talents35">
+          <label class="form-check-label" for="talents35">Berserker</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Bowyer" id="talents36">
+          <label class="form-check-label" for="talents36">Bowyer</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Brawler" id="talents37">
+          <label class="form-check-label" for="talents37">Brawler</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Builder" id="talents38">
+          <label class="form-check-label" for="talents38">Builder</label>
+        </div>
+      </div>
+
+      <div class="col-2">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Chef" id="talents39">
+          <label class="form-check-label" for="talents39">Chef</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Cold Blooded" id="talents40">
+          <label class="form-check-label" for="talents40">Cold Blooded</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Defender" id="talents41">
+          <label class="form-check-label" for="talents41">Defender</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Dragonslayer" id="talents42">
+          <label class="form-check-label" for="talents42">Dragonslayer</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Executioner" id="talents43">
+          <label class="form-check-label" for="talents43">Executioner</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Fast Footwork" id="talents44">
+          <label class="form-check-label" for="talents44">Fast Footwork</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Fast Shooter" id="talents45">
+          <label class="form-check-label" for="talents45">Fast Shooter</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Fearless" id="talents46">
+          <label class="form-check-label" for="talents46">Fearless</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Firm Grip" id="talents47">
+          <label class="form-check-label" for="talents47">Firm Grip</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Fisher" id="talents48">
+          <label class="form-check-label" for="talents48">Fisher</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Hammer Fighter" id="talents49">
+          <label class="form-check-label" for="talents49">Hammer Fighter</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Herbalist" id="talents50">
+          <label class="form-check-label" for="talents50">Herbalist</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Horseback Fighter" id="talents51">
+          <label class="form-check-label" for="talents51">Horseback Fighter</label>
+        </div>
+      </div>
+
+
+      <div class="col-2">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Incorruptible" id="talents52">
+          <label class="form-check-label" for="talents52">Incorruptible</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Knife Fighter" id="talents53">
+          <label class="form-check-label" for="talents53">Knife Fighter</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Lightning Fast" id="talents54">
+          <label class="form-check-label" for="talents54">Lightning Fast</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Lockpicker" id="talents55">
+          <label class="form-check-label" for="talents55">Lockpicker</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Lucky" id="talents56">
+          <label class="form-check-label" for="talents56">Lucky</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Master of the Hunt" id="talents57">
+          <label class="form-check-label" for="talents57">Master of the Hunt</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Melee Charge" id="talents58">
+          <label class="form-check-label" for="talents58">Melee Charge</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Pack Rat" id="talents59">
+          <label class="form-check-label" for="talents59">Pack Rat</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Pain Resistant" id="talents60">
+          <label class="form-check-label" for="talents60">Pain Resistant</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Pathfinder" id="talents61">
+          <label class="form-check-label" for="talents61">Pathfinder</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Poisoner" id="talents62">
+          <label class="form-check-label" for="talents62">Poisoner</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Quartermaster" id="talents63">
+          <label class="form-check-label" for="talents63">Quartermaster</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Quickdraw" id="talents64">
+          <label class="form-check-label" for="talents64">Quickdraw</label>
+        </div>
+      </div>
+
+      <div class="col-2">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Sailor" id="talents65">
+          <label class="form-check-label" for="talents65">Sailor</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Sharpshooter" id="talents66">
+          <label class="form-check-label" for="talents66">Sharpshooter</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Sharp Tongue" id="talents67">
+          <label class="form-check-label" for="talents67">Sharp Tongue</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Shield Fighter" id="talents68">
+          <label class="form-check-label" for="talents68">Shield Fighter</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Sixth Sense" id="talents69">
+          <label class="form-check-label" for="talents69">Sixth Sense</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Smith" id="talents70">
+          <label class="form-check-label" for="talents70">Smith</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Spear Fighter" id="talents71">
+          <label class="form-check-label" for="talents71">Spear Fighter</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Steady Feet" id="talents72">
+          <label class="form-check-label" for="talents72">Steady Feet</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Sword Fighter" id="talents73">
+          <label class="form-check-label" for="talents73">Sword Fighter</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Tailor" id="talents74">
+          <label class="form-check-label" for="talents74">Tailor</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Tanner" id="talents75">
+          <label class="form-check-label" for="talents75">Tanner</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Threatening" id="talents76">
+          <label class="form-check-label" for="talents76">Threatening</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Throwing Arm" id="talents77">
+          <label class="form-check-label" for="talents77">Throwing Arm</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="talents[]" value="Wanderer" id="talents78">
+          <label class="form-check-label" for="talents78">Wanderer</label>
+        </div>
+      </div>
+
+
+
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
