@@ -6,11 +6,23 @@ const conditionSchema = new Schema({
     type: String,
     required: [true, "Conditions must have a non-empty name"],
     trim: true,
+    validate: {
+      validator: function (name) {
+        return name.trim().length > 0;
+      },
+      message: "Name must have a non-empty value",
+    },
   },
   description: {
     type: String,
     required: [true, "Conditions must have a non-empty description"],
     trim: true,
+    validate: {
+      validator: function (description) {
+        return description.trim().length > 0;
+      },
+      message: "Description must have a non-empty value",
+    },
   },
   effects: {
     type: Array,
