@@ -13,14 +13,14 @@ const gearSchema = new Schema({
       message: "Name must have a non-empty value",
     },
   },
-  type: {
+  category: {
     type: String,
-    required: [true, "Gear must have a non-empty type"],
+    required: [true, "Gear must have a non-empty category"],
     trim: true,
     validate: {
-      validator: function (type) {
+      validator: function (category) {
         return (
-          type.trim().length > 0 &&
+          category.trim().length > 0 &&
           [
             "Trade Good",
             "Melee Weapon",
@@ -33,10 +33,10 @@ const gearSchema = new Schema({
             "Building",
             "Animal",
             "Service",
-          ].includes(type)
+          ].includes(category)
         );
       },
-      message: "Type must have a non-empty valid value",
+      message: "Category must have a non-empty valid value",
     },
   },
   price: {
@@ -60,7 +60,7 @@ const gearSchema = new Schema({
     trim: true,
     validate: {
       validator: function (rarity) {
-        const allowedTypes = [
+        const allowedCategories = [
           "Service",
           "Trade Good",
           "Melee Weapon",
@@ -71,7 +71,7 @@ const gearSchema = new Schema({
           "Tool",
           "Animal",
         ];
-        if (allowedTypes.includes(this.type)) {
+        if (allowedCategories.includes(this.category)) {
           return ["Common", "Uncommon", "Rare"].includes(rarity);
         } else {
           return rarity.trim().length === 0;
@@ -85,14 +85,14 @@ const gearSchema = new Schema({
     trim: true,
     validate: {
       validator: function (weight) {
-        const allowedTypes = [
+        const allowedCategories = [
           "Trade Good",
           "Melee Weapon",
           "Ranged Weapon",
           "Shield & Armor",
           "Tool",
         ];
-        if (allowedTypes.includes(this.type)) {
+        if (allowedCategories.includes(this.category)) {
           return ["Tiny", "Light", "Normal", "Heavy"].includes(weight);
         } else {
           return weight.trim().length === 0;
@@ -106,7 +106,7 @@ const gearSchema = new Schema({
     trim: true,
     validate: {
       validator: function (materials) {
-        const allowedTypes = [
+        const allowedCategories = [
           "Trade Good",
           "Melee Weapon",
           "Ranged Weapon",
@@ -141,7 +141,7 @@ const gearSchema = new Schema({
           "silver",
           "wool",
         ];
-        if (allowedTypes.includes(this.type)) {
+        if (allowedCategories.includes(this.category)) {
           return materials
             .toLowerCase()
             .match(/[a-z]+/gi)
@@ -162,7 +162,7 @@ const gearSchema = new Schema({
     trim: true,
     validate: {
       validator: function (time) {
-        const allowedTypes = [
+        const allowedCategories = [
           "Trade Good",
           "Melee Weapon",
           "Ranged Weapon",
@@ -173,7 +173,7 @@ const gearSchema = new Schema({
           "Building",
         ];
 
-        if (allowedTypes.includes(this.type)) {
+        if (allowedCategories.includes(this.category)) {
           return time.trim().length > 0;
         } else {
           return time.trim().length === 0;
@@ -280,7 +280,7 @@ const gearSchema = new Schema({
     trim: true,
     validate: {
       validator: function (tools) {
-        return this.type !== "Animal" || tools.length === 0;
+        return this.category !== "Animal" || tools.length === 0;
       },
     },
   },
@@ -290,7 +290,8 @@ const gearSchema = new Schema({
     validate: {
       validator: function (effect) {
         return (
-          ["Trade Good", "Clothes"].includes(this.type) || effect.length === 0
+          ["Trade Good", "Clothes"].includes(this.category) ||
+          effect.length === 0
         );
       },
     },
@@ -301,7 +302,7 @@ const gearSchema = new Schema({
     validate: {
       validator: function (comment) {
         return (
-          ["Service", "Animal"].includes(this.type) || comment.length === 0
+          ["Service", "Animal"].includes(this.category) || comment.length === 0
         );
       },
     },
@@ -311,7 +312,7 @@ const gearSchema = new Schema({
     trim: true,
     validate: {
       validator: function (shelfLife) {
-        return this.type === "Raw Material" || shelfLife.length === 0;
+        return this.category === "Raw Material" || shelfLife.length === 0;
       },
     },
   },
