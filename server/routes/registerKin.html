@@ -12,38 +12,46 @@
 </head>
 
 <body>
-  <form action="api/kin/register" method="post" class="container">
+  <form action="/api/kin/register" method="post" class="container mt-5">
     <div class="row mb-3">
-      <div class="col-4">
-        <label for="nameInput" class="form-label">Name</label>
-        <input type="text" class="form-control" id="nameInput" placeholder="Enter name">
+      <div class="col-6">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name" name="name" required>
+        </div>
       </div>
-
-      <div class="col-4">
-        <label for="attributeInput" class="form-label">Key Attribute</label>
-        <input type="text" class="form-control" id="attributeInput" placeholder="Enter attribute">
-      </div>
-
-      <div class="col-4">
-        <label for="talentInput" class="form-label">Talent</label>
-        <input type="text" class="form-control" id="talentInput" placeholder="Enter talent">
+      <div class="col-6">
+        <div class="form-group">
+          <label for="attribute">Attribute</label>
+          <select class="form-select" id="attribute" name="attribute" required>
+            <option value="" selected disabled>Select an attribute</option>
+            <option value="Strength">Strength</option>
+            <option value="Agility">Agility</option>
+            <option value="Wits">Wits</option>
+            <option value="Empathy">Empathy</option>
+          </select>
+        </div>
       </div>
     </div>
-
     <div class="row mb-3">
       <div class="col-4">
-        <label for="youngAgeInput" class="form-label">Young Age</label>
-        <input type="number" class="form-control" id="youngAgeInput" placeholder="Enter young age">
+        <div class="form-group">
+          <label for="youngAge">Young Age</label>
+          <input type="number" class="form-control" id="youngAge" name="youngAge">
+        </div>
       </div>
       <div class="col-4">
-        <label for="adultAgeInput" class="form-label">Adult Age</label>
-        <input type="number" class="form-control" id="adultAgeInput" placeholder="Enter adult age">
+        <div class="form-group">
+          <label for="adultAge">Adult Age</label>
+          <input type="number" class="form-control" id="adultAge" name="adultAge">
+        </div>
       </div>
       <div class="col-4">
-        <label for="oldAgeInput" class="form-label">Old Age</label>
-        <input type="number" class="form-control" id="oldAgeInput" placeholder="Enter old age">
+        <div class="form-group">
+          <label for="oldAge">Old Age</label>
+          <input type="number" class="form-control" id="oldAge" name="oldAge">
+        </div>
       </div>
-
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 
