@@ -10,6 +10,7 @@ const skillRoutes = require("./routes/skill");
 const conditionRoutes = require("./routes/condition");
 const gearRoutes = require("./routes/gear");
 const weaponRoutes = require("./routes/weapon");
+const armorRoutes = require("./routes/armor");
 
 const app = express();
 app.use(bodyParser.json());
@@ -26,6 +27,7 @@ async function main() {
   app.use("/api/condition", conditionRoutes);
   app.use("/api/gear", gearRoutes);
   app.use("/api/weapon", weaponRoutes);
+  app.use("/api/armor", armorRoutes);
 
   app.listen(config.port, () => {
     console.log(`Server listening on ${config.port}`);
