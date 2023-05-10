@@ -35,7 +35,7 @@ router.get("/:id", async (req, res, next) => {
       handleNotFoundError(res, "Skill not found");
       return;
     }
-    res.json(skillData);
+    res.status(200).json(skillData);
   } catch (err) {
     err.modelName = Skills.modelName;
     handleError(err, req, res, next);
