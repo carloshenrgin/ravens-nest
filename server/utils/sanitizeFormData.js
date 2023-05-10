@@ -1,3 +1,5 @@
+const sanitizeArray = require("./sanitizeArray");
+
 function sanitizeFormData(formData) {
   const sanitizedData = {};
   for (const [key, value] of Object.entries(formData)) {
@@ -6,7 +8,7 @@ function sanitizeFormData(formData) {
         Array.isArray(value) &&
         value.every((item) => typeof item === "string")
       ) {
-        sanitizedData[key] = value.filter((item) => item.trim().length > 0);
+        sanitizedData[key] = sanitizeArray(value);
       } else {
         sanitizedData[key] = value;
       }
