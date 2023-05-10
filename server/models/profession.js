@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const { schema: skillSchema } = require("./skill");
+const { model: Skills } = require("./skill");
 const { schema: talentSchema } = require("./talent");
 
 const professionSchema = new Schema({
@@ -29,13 +29,19 @@ const professionSchema = new Schema({
   },
   skills: {
     type: Array,
-    of: skillSchema,
+    of: String,
     required: [true, "Profession must have a non-empty array of skills"],
     validate: {
-      validator: function (skillArray) {
-        return skillArray.length === 5;
+      validator: async function (skillArray) {
+        if (skillArray.length !== 5) return false;
+
+        const skills = await Skills.find({
+          name: { $in: skillArray },
+        });
+
+        return skills.length === 5;
       },
-      message: "Invalid number of skills",
+      message: "Invalid number of valid skills",
     },
   },
   talents: {

@@ -2,73 +2,102 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const router = express.Router();
 const { model: Professions } = require("../models/profession");
-const { model: Talent } = require("../models/talent");
-const { model: Skill } = require("../models/skill");
+const { model: Talents } = require("../models/talent");
+const { model: Skills } = require("../models/skill");
 const sanitizeFormData = require("../utils/sanitizeFormData");
+const {
+  handleBadRequestError,
+  handleInternalServerError,
+  handleNotFoundError,
+  handleError,
+} = require("../utils/errorHandler");
 
 router.use(bodyParser.urlencoded({ extended: true }));
 
-router.get("/register", (req, res) => {
-  res.sendFile("/registerProfession.html", { root: __dirname });
+router.get("/", async (req, res, next) => {
+  try {
+    const professionData = await Professions.find();
+    res.status(200).json(professionData);
+  } catch (err) {
+    handleError(err, req, res, next);
+  }
 });
 
-router.post("/register", async (req, res) => {
-  const professionData = sanitizeFormData(req.body);
+router.post("/", async (req, res, next) => {
+  try {
+    const professionData = sanitizeFormData(req.body);
 
-  const skillArray = professionData.skills
-    ?.split(";")
-    .map((skill) => skill.trim());
+    const talents = await Talents.find({ profession: professionData.name });
 
-  const [talentResult, skillResult] = await Promise.allSettled([
-    Talent.find({
-      profession: professionData.name,
-    }),
-    Skill.find({
-      name: { $in: skillArray },
-    }),
-  ]);
+    if (!talents) {
+      handleNotFoundError(res, "Talents not found");
+      return;
+    }
 
-  if (
-    talentResult.status === "fulfilled" &&
-    skillResult.status === "fulfilled"
-  ) {
-    professionData.talents = talentResult.value;
-    professionData.skills = skillResult.value;
-
-    professionData.pride = professionData.pride
-      ?.split(";")
-      .map((pride) => pride.trim());
-
-    professionData.darkSecret = professionData.darkSecret
-      ?.split(";")
-      .map((darkSecret) => darkSecret.trim());
-
-    professionData.relationships = professionData.relationships
-      ?.split(";")
-      .map((relationships) => relationships.trim());
+    professionData.talents = talents;
 
     let profession = new Professions(professionData);
+    profession = await profession.save();
 
-    try {
-      profession = await profession.save();
+    res.status(201).json(profession);
+  } catch (err) {
+    handleError(err, req, res, next);
+  }
+});
 
-      res.json(profession);
-    } catch (err) {
-      console.error(err);
-
-      let errorString = "";
-      for (let error in err.errors) {
-        errorString += `<li>${error}</li>`;
-      }
-      res.write("<h1>Errors</h1>");
-      res.write(`<ul>${errorString}</ul>`);
-      res.send();
+router.get("/:id", async (req, res, next) => {
+  try {
+    const professionData = await Professions.findById(req.params.id);
+    if (!professionData) {
+      handleNotFoundError(res, "Profession not found");
+      return;
     }
-  } else {
-    console.log(talentResult?.reason, skillResult?.reason);
+    res.status(200).json(professionData);
+  } catch (err) {
+    err.modelName = Professions.modelName;
+    handleError(err, req, res, next);
+  }
+});
 
-    res.write("<h1>Promises failed</h1>");
-    res.send();
+router.put("/:id", async (req, res, next) => {
+  try {
+    const professionData = sanitizeFormData(req.body);
+
+    if (req.body.talents) {
+      handleBadRequestError(res, "Cannot update a profession's talents");
+      return;
+    }
+
+    const profession = await Professions.findByIdAndUpdate(
+      req.params.id,
+      professionData,
+      {
+        new: true,
+        runValidators: true,
+      }
+    );
+    if (!profession) {
+      handleNotFoundError(res, "Profession not found");
+      return;
+    }
+    res.status(200).json(profession);
+  } catch (err) {
+    err.modelName = Professions.modelName;
+    handleError(err, req, res, next);
+  }
+});
+
+router.delete("/:id", async (req, res, next) => {
+  try {
+    const professionData = await Professions.findByIdAndDelete(req.params.id);
+    if (!professionData) {
+      handleNotFoundError(res, "Profession not found");
+      return;
+    }
+    res.status(204).end();
+  } catch (err) {
+    err.modelName = Skills.modelName;
+    handleError(err, req, res, next);
   }
 });
 
