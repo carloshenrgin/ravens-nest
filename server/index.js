@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const config = require("./config");
+const { handleInternalServerError } = require("./utils/errorHandler");
 
 const characterRoutes = require("./routes/character");
 const kinRoutes = require("./routes/kin");
@@ -16,9 +17,17 @@ const professionRoutes = require("./routes/profession");
 const app = express();
 app.use(bodyParser.json());
 
-main().catch((err) => console.log(err));
+main().catch((err) => {
+  handleInternalServerError(
+    res,
+    "An error occurred while connecting to the database."
+  );
+  process.exit(1);
+});
 
 async function main() {
+  mongoose.set("strictQuery", true);
+
   await mongoose.connect(config.dbUrl, config.dbOptions);
 
   app.use("/api/character", characterRoutes);
